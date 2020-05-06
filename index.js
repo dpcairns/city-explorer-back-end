@@ -13,6 +13,9 @@ app.use(cors());
 
 
 app.get('/location', async(req, res) => {
+    console.log('=============================\n');
+    console.log('|| PORT', PORT);
+    console.log('\n=============================');
     const data = await request.get(`https://us1.locationiq.com/v1/search.php?key=${process.env.LOCATIONIQ_KEY}&q=${req.query.search}&format=json`);
 
     const mungedData = mungeLocation(data.body);
